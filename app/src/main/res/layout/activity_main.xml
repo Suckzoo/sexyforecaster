@@ -7,12 +7,126 @@
     tools:context="sexy.mycodeis.suckzoo.sexyforecaster.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/tempRangeTextView"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tempTextView"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/tempTextView"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/tempTextView" />
+
+    <TextView
+        android:id="@+id/corTextView"
+        android:layout_width="165dp"
+        android:layout_height="16dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tempRangeTextView"
+        android:layout_marginStart="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/weatherTextView"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@+id/cityNameTextView"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_editor_absoluteX="104dp" />
+
+    <TextView
+        android:id="@+id/cityNameTextView"
+        android:layout_width="220dp"
+        android:layout_height="44dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="30sp"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tempTextView"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/cityNameTextView"
+        app:layout_constraintRight_toLeftOf="@+id/weatherTextView"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="12dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/hourlyWeatherView"
+        android:layout_width="344dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.418"
+        app:layout_constraintLeft_toRightOf="@+id/corTextView"
+        app:layout_constraintRight_toRightOf="@+id/corTextView"
+        app:layout_constraintTop_toBottomOf="@+id/dailyWeatherView"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/corTextView"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/dailyWeatherView">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+    </HorizontalScrollView>
+
+    <ImageView
+        android:id="@+id/weatherImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/dailyWeatherView"
+        app:layout_constraintLeft_toRightOf="@+id/cityNameTextView"
+        app:srcCompat="@android:color/background_light" />
+
+    <ImageButton
+        android:id="@+id/refreshButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/weatherImage"
+        app:layout_constraintLeft_toRightOf="@+id/cityNameTextView"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
 </android.support.constraint.ConstraintLayout>
