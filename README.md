@@ -4,9 +4,10 @@
 - Author: Seokju Hong
 - ID: 20164484
 
-This report is also available on https://github.com/suckzoo/sexyforecaster/readme.md.
+Codes are available on https://github.com/Suckzoo/sexyforecaster/.
 
-PDF version of this report may not support hyperlinks.
+This report is also available on https://github.com/Suckzoo/sexyforecaster/blob/master/README.md.
+
 
 ## How the app works
 
