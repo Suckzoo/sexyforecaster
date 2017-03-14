@@ -249,7 +249,9 @@ class MainActivity : AppCompatActivity() {
 
             mainUI.forecastLayout.removeAllViews()
             for (i in 1..forecastArray.length()) {
-                mainUI.forecastLayout.addView(getForecastView(forecastArray.getJSONObject(i), mainUI.forecastLayout))
+                forecastArray.getJSONObject(i)?.let {
+                    mainUI.forecastLayout.addView(getForecastView(it, mainUI.forecastLayout))
+                }
             }
         } catch (e: Exception) {
             Toast.makeText(applicationContext, "Cannot get forecast information.", 2000)
@@ -267,7 +269,7 @@ class MainActivity : AppCompatActivity() {
         val tempRange = TextUtils.concat(highestTemp, " / ", lowestTemp)
 
         val pop = item.getString("pop").toString() + "%"
-        val view = with(parent!!.context) {
+        val view = with(parent.context) {
             linearLayout {
                 imageView {
                     imageResource = getDrawableIdByWeather(weather)
@@ -293,7 +295,9 @@ class MainActivity : AppCompatActivity() {
             val hourlyArray = hourly.getJSONArray("hourly_forecast")
             mainUI.hourlyLayout.removeAllViews()
             for (i in 0..4) {
-                mainUI.hourlyLayout.addView(getHourlyView(hourlyArray.getJSONObject(i), mainUI.hourlyLayout))
+                hourlyArray.getJSONObject(i)?.let {
+                    mainUI.hourlyLayout.addView(getHourlyView(it, mainUI.hourlyLayout))
+                }
             }
         } catch (e: Exception) {
             Toast.makeText(applicationContext, "Cannot get forecast information.", 2000)
@@ -312,7 +316,7 @@ class MainActivity : AppCompatActivity() {
         val tempString = TextUtils.concat(temp, degree)
 
         val pop = item.getString("pop").toString() + "%"
-        val view = with(parent!!.context) {
+        val view = with(parent.context) {
             linearLayout {
                 imageView {
                     imageResource = getDrawableIdByWeather(weather)
